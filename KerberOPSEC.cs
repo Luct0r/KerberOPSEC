@@ -9,7 +9,17 @@ namespace KerberOPSEC
 	{
 		public static void GetDN()
 		{
-			
+			try
+			{
+				DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://RootDSE");
+				Object distinguishedName = RootDirEntry.Properties["defaultNamingContext"].Value;
+				Console.WriteLine("---> " + distinguishedName);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+				return;
+			}
 		}
 	}
 }

@@ -21,5 +21,27 @@ namespace KerberOPSEC
 				return;
 			}
 		}
+		public static void QueryLDAP(string tLDAP, string tQry)
+		{
+			try
+			{
+				DirectoryEntry directoryObject = new DirectoryEntry("LDAP://" + tLDAP);
+				DirectorySearcher subSearcher = new DirectorySearcher(directoryObject)
+				{
+					SearchScope = SearchScope.OneLevel, // Don't recurse down
+					Filter = tQry
+				};
+				foreach (SearchResult sub in subSearcher.FindAll())
+				{
+					// Get rid of "LDAP://"
+					Console.WriteLine("---> " + sub.Path.Remove(0, 7).ToString());
+				}
+				Console.WriteLine();
+			}
+			catch (Exception)
+			{
+				Console.WriteLine("Check arguments and quotes...");
+			}
+		}
 	}
 }

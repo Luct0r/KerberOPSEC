@@ -31,7 +31,7 @@ namespace KerberOPSEC
                     DirectoryEntry directoryObject = new DirectoryEntry("LDAP://" + tLDAP);
                     DirectorySearcher subSearcher = new DirectorySearcher(directoryObject)
                     {
-                        SearchScope = SearchScope.Subtree, // Do ecurse down
+                        SearchScope = SearchScope.Subtree, // Do recurse down
                         Filter = tQry
                     };
                     foreach (SearchResult sub in subSearcher.FindAll())

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 using System.DirectoryServices;
 using System.Text;
@@ -120,41 +120,44 @@ namespace KerberOPSEC
                 string[] strArray = new string[9];
                 while (iEnumerator.MoveNext())
                 {
-                    if (iEnumerator.Current.ToString() == "samaccountname")
-                    {
-                        strArray.SetValue("---> sAMAccountName                : " + sResult.Properties[iEnumerator.Current.ToString()][0], 0);
-                    }
                     if (iEnumerator.Current.ToString() == "description")
                     {
                         strArray.SetValue("---> Description                   : " + sResult.Properties[iEnumerator.Current.ToString()][0], 1);
                     }
-                    if (iEnumerator.Current.ToString() == "serviceprincipalname")
+                    else if (iEnumerator.Current.ToString() == "samaccountname")
+                    {
+                        strArray.SetValue("---> sAMAccountName                : " + sResult.Properties[iEnumerator.Current.ToString()][0], 0);
+
+                        // Was throwing error if there was no description
+                        strArray.SetValue("---> Description                   : ", 1);
+                    }
+                    else if (iEnumerator.Current.ToString() == "serviceprincipalname")
                     {
                         strArray.SetValue("---> servicePrincipalName          : " + sResult.Properties[iEnumerator.Current.ToString()][0], 2);
                     }
-                    if (iEnumerator.Current.ToString() == "whencreated")
+                    else if (iEnumerator.Current.ToString() == "whencreated")
                     {
                         strArray.SetValue("---> whenCreated                   : " + sResult.Properties[iEnumerator.Current.ToString()][0], 3);
                     }
-                    if (iEnumerator.Current.ToString() == "whenchanged")
+                    else if (iEnumerator.Current.ToString() == "whenchanged")
                     {
                         strArray.SetValue("---> whenChanged                   : " + sResult.Properties[iEnumerator.Current.ToString()][0], 4);
                     }
-                    if (iEnumerator.Current.ToString() == "useraccountcontrol")
+                    else if (iEnumerator.Current.ToString() == "useraccountcontrol")
                     {
                         strArray.SetValue("---> userAccountControl            : " + sResult.Properties[iEnumerator.Current.ToString()][0], 5);
                     }
-                    if (iEnumerator.Current.ToString() == "msds-supportedencryptiontypes")
+                    else if (iEnumerator.Current.ToString() == "msds-supportedencryptiontypes")
                     {
                         strArray.SetValue("---> msds-SupportedEncryptionTypes : " + sResult.Properties[iEnumerator.Current.ToString()][0], 6);
                     }
-                    if (iEnumerator.Current.ToString() == "pwdlastset")
+                    else if (iEnumerator.Current.ToString() == "pwdlastset")
                     {
                         long pwdSet = (long)sResult.Properties[iEnumerator.Current.ToString()][0];
                         DateTime dtPwdSet = DateTime.FromFileTime(pwdSet);
                         strArray.SetValue("---> pwdLastSet                    : " + dtPwdSet, 7);
                     }
-                    if (iEnumerator.Current.ToString() == "lastlogon")
+                    else if (iEnumerator.Current.ToString() == "lastlogon")
                     {
                         long LastLogon = (long)sResult.Properties[iEnumerator.Current.ToString()][0];
                         DateTime dtLastLogon = DateTime.FromFileTime(LastLogon);

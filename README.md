@@ -83,7 +83,7 @@ User Attributes:
 
 ---> sAMAccountName                : sqluser
 ---> Description                   : MSSQL
----> servicePrincipalName          : MSSQLSvc/FileSRV:8000
+---> servicePrincipalName          : MSSQLSvc/FileSRV:1433
 ---> whenCreated                   : 1/8/2021 4:52:54 AM
 ---> whenChanged                   : 1/10/2022 8:29:36 PM
 ---> userAccountControl            : 66048
@@ -100,4 +100,7 @@ $krb5tgs$23$*sqluser$contoso.local$MSSQLSvc/SQLSRV:1433*$9d0795ce5c11fdfd74c3168
 
 # References
 [Microsoft 365 Security: Kerberoast With OPSEC](https://m365internals.com/2021/11/08/kerberoast-with-opsec/) \
+[GhostPack: SharpRoast](https://github.com/GhostPack/SharpRoast) \
+[Stack Overflow: Difference between PrincipalSearcher and DirectorySearcher](https://stackoverflow.com/questions/23176284/difference-between-principalsearcher-and-directorysearcher) \
+[Stack Overflow: Active Directory : PropertiesToLoad get all properties](https://stackoverflow.com/questions/28214732/active-directory-propertiestoload-get-all-properties) \
 [GhostPack: SharpRoast](https://github.com/GhostPack/SharpRoast)

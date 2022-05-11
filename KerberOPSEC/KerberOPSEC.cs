@@ -269,7 +269,7 @@ namespace KerberOPSEC
             else if (option == "-getspn")
             {
                 Console.WriteLine();
-                Kerberoast.Roast.GetDomainSPNTicket(targetLDAP, targetSPN);
+                RubeusRoast.Roast.GetTGSRepHash(targetLDAP, targetSPN);
             }
         }
     }

@@ -103,3 +103,4 @@ $krb5tgs$23$*sqluser$contoso.local$MSSQLSvc/SQLSRV:1433*$9d0795ce5c11fdfd74c3168
 [Stack Overflow: Difference between PrincipalSearcher and DirectorySearcher](https://stackoverflow.com/questions/23176284/difference-between-principalsearcher-and-directorysearcher) \
 [Stack Overflow: Active Directory - PropertiesToLoad get all properties](https://stackoverflow.com/questions/28214732/active-directory-propertiestoload-get-all-properties) \
 [GhostPack: SharpRoast](https://github.com/GhostPack/SharpRoast)
+[GhostPack: Rubeus](https://github.com/GhostPack/Rubeus)

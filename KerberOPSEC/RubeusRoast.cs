@@ -23,6 +23,7 @@ namespace RubeusRoast
             string domainDN = dnMatch.Groups["Domain"].ToString();
             string domain = domainDN.Replace("DC=", "").Replace(',', '.');
 
+            // Pulled directly from Rubeus
             try
             {
                 // the System.IdentityModel.Tokens.KerberosRequestorSecurityToken approach and extraction of the AP-REQ from the
